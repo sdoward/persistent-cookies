@@ -36,14 +36,7 @@ public class PersistantCookieStoreTest {
 
     @Test
     public void shouldAddCookie() {
-        BasicClientCookie2 cookie = new BasicClientCookie2("cookie1", "value1");
-        cookie.setComment("comment");
-        cookie.setCommentURL("commentURL");
-        cookie.setVersion(3);
-        cookie.setPath("path");
-        cookie.setDomain("domain");
-        cookie.setExpiryDate(new Date(System.currentTimeMillis()));
-        persistantCookieStore.addCookie(cookie);
+        persistantCookieStore.addCookie(cookies.get(0));
         Assert.assertEquals("cookie1", persistantCookieStore.getCookies().get(0).getName());
     }
 
@@ -61,5 +54,6 @@ public class PersistantCookieStoreTest {
         persistantCookieStore.clearExpired(new Date(time));
         Assert.assertEquals(0, persistantCookieStore.getCookies().size());
     }
+
 
 }

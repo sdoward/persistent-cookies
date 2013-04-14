@@ -1,21 +1,10 @@
 persistent-cookies
 ==================
 
-android library for persistent cookies
+Android library for persistent cookies for use with HttpClient
 
 
-There are 2 ways to import this library.
-
-1. Maven
-
-Enter this... in POM
-
-2. No Maven
-
-Download the JAR and import into the project
-
-
-Usage within the project
+Sample Usage
 ------------------------
 
 To make your cookies persist across app restarts you use the PersistantCookieStore class that is contained in the library.
