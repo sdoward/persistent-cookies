@@ -18,3 +18,12 @@ local.properties
 # Eclipse project files
 .classpath
 .project
+
+.DS_Store
+/.DS_Store
+/.idea/
+/out/
+/persistantcookiestore.iml
+/target/
+/tmp/
+/res/
