@@ -5,6 +5,7 @@ import com.xtremelabs.robolectric.Robolectric;
 import com.xtremelabs.robolectric.RobolectricTestRunner;
 import com.xtremelabs.robolectric.shadows.ShadowPreferenceManager;
 import junit.framework.Assert;
+import org.apache.http.client.CookieStore;
 import org.apache.http.cookie.Cookie;
 import org.apache.http.impl.cookie.BasicClientCookie2;
 import org.junit.Before;
@@ -17,7 +18,7 @@ import java.util.List;
 @RunWith(RobolectricTestRunner.class)
 public class PersistantCookieStoreTest {
 
-    private PersistantCookieStore persistantCookieStore;
+    private CookieStore persistantCookieStore;
 
     private List<Cookie> cookies = new ArrayList<Cookie>(5);
 

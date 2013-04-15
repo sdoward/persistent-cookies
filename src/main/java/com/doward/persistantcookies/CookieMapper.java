@@ -7,7 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.*;
 
-public class CookieMapper {
+ class CookieMapper {
 
     public Cookie toCookie(JSONObject jsonObject) throws JSONException {
         BasicClientCookie2 cookie = new BasicClientCookie2(jsonObject.getString("name"), jsonObject.getString("value"));
