@@ -26,7 +26,7 @@
         </license>
     </licenses>
     <scm>
-        <url>https://github.com/samddman/persistent-cookies</url>
+        <url>git@github.com:samddman/persistent-cookies.git</url>
         <connection>scm:git:git://github.com/samddman/persistent-cookies.git</connection>
         <developerConnection>scm:git:git://github.com/samddman/persistent-cookies.git</developerConnection>
     </scm>
