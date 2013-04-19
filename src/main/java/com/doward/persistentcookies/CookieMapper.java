@@ -1,4 +1,4 @@
-package com.doward.persistantcookies;
+package com.doward.persistentcookies;
 
 import org.apache.http.cookie.Cookie;
 import org.apache.http.impl.cookie.BasicClientCookie2;

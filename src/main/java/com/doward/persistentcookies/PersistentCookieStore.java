@@ -1,4 +1,4 @@
-package com.doward.persistantcookies;
+package com.doward.persistentcookies;
 
 import android.content.SharedPreferences;
 import org.apache.http.client.CookieStore;
@@ -9,13 +9,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class PersistantCookieStore implements CookieStore {
+public class PersistentCookieStore implements CookieStore {
 
     private SharedPreferences sharedPreferences;
     private CookieMapper cookieMapper = new CookieMapper();
 
 
-    public PersistantCookieStore(SharedPreferences sharedPreferences) {
+    public PersistentCookieStore(SharedPreferences sharedPreferences) {
         this.sharedPreferences = sharedPreferences;
     }
 
@@ -66,8 +66,7 @@ public class PersistantCookieStore implements CookieStore {
                 return cookies;
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            return new ArrayList<Cookie>(0);
+            throw new RuntimeException(e.getMessage());
         }
     }
 
@@ -79,7 +78,7 @@ public class PersistantCookieStore implements CookieStore {
             }
             sharedPreferences.edit().putString("cookies", jsonArray.toString()).commit();
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException(e.getMessage());
         }
     }
 

@@ -1,6 +1,6 @@
 package com.doward.persistantcookietest;
 
-import com.doward.persistantcookies.PersistantCookieStore;
+import com.doward.persistentcookies.PersistentCookieStore;
 import com.xtremelabs.robolectric.Robolectric;
 import com.xtremelabs.robolectric.RobolectricTestRunner;
 import com.xtremelabs.robolectric.shadows.ShadowPreferenceManager;
@@ -12,12 +12,11 @@ import org.apache.http.impl.cookie.BasicClientCookie2;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import java.util.ArrayList;
+
 import java.util.Date;
-import java.util.List;
 
 @RunWith(RobolectricTestRunner.class)
-public class PersistantCookieStoreTest {
+public class PersistentCookieStoreTest {
 
     private CookieStore persistantCookieStore;
 
@@ -28,7 +27,7 @@ public class PersistantCookieStoreTest {
 
     @Before
     public void setUp() {
-        persistantCookieStore = new PersistantCookieStore(ShadowPreferenceManager.getDefaultSharedPreferences(Robolectric.application.getApplicationContext()));
+        persistantCookieStore = new PersistentCookieStore(ShadowPreferenceManager.getDefaultSharedPreferences(Robolectric.application.getApplicationContext()));
         basicClientCookie.setComment("comment");
         basicClientCookie.setVersion(3);
         basicClientCookie.setPath("path");
@@ -83,6 +82,12 @@ public class PersistantCookieStoreTest {
         time = System.currentTimeMillis() + 1000;
         Assert.assertEquals(true, persistantCookieStore.clearExpired(new Date(time)));
         Assert.assertEquals(1, persistantCookieStore.getCookies().size());
+    }
+
+    @Test
+    public void getWithNoCookies() {
+        persistantCookieStore.clear();
+        persistantCookieStore.getCookies();
     }
 
 
