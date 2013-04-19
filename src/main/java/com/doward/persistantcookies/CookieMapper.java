@@ -38,14 +38,18 @@ import java.util.*;
             jsonObject.put("expiryDate", cookie.getExpiryDate().getTime());
         }
         if (cookie.getPorts() != null) {
-            jsonObject.put("ports", arrayToJSONArray(cookie));
+            JSONArray jsonArray = arrayToJSONArray(cookie.getPorts());
+            jsonObject.put("ports", jsonArray);
         }
         return jsonObject;
     }
 
-    private JSONArray arrayToJSONArray(Cookie cookie) {
-        List<Integer> ports = new ArrayList(Arrays.asList(cookie.getPorts()));
-        return new JSONArray(ports);
+    private JSONArray arrayToJSONArray(int[] ports) {
+        JSONArray jsonArray = new JSONArray();
+        for(int i = 0 ; i < ports.length; i++){
+            jsonArray.put(ports[i]);
+        }
+        return jsonArray;
     }
 
     private int[] JSONArrayToArray(JSONArray jsonArray) throws JSONException {
