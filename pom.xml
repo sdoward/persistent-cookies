@@ -72,6 +72,22 @@
                 <extensions>true</extensions>
             </plugin>      -->
             <plugin>
+                <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+                <artifactId>android-maven-plugin</artifactId>
+                <version>3.3.2</version>
+                <configuration>
+                    <androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
+                    <assetsDirectory>${project.basedir}/assets</assetsDirectory>
+                    <resourceDirectory>${project.basedir}/res</resourceDirectory>
+                    <nativeLibrariesDirectory>${project.basedir}/src/main/native</nativeLibrariesDirectory>
+                    <sdk>
+                        <platform>17</platform>
+                    </sdk>
+                    <undeployBeforeDeploy>true</undeployBeforeDeploy>
+                </configuration>
+                <extensions>true</extensions>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>2.3</version>
@@ -87,29 +103,13 @@
                                 <resource>
                                     <directory>${project.basedir}/src/templates/res</directory>
                                     <targetPath>${project.basedir}/res</targetPath>
-                                    <filtering>true</filtering>
+                                    <filtering>false</filtering>
                                 </resource>
                             </resources>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-                <plugin>
-                    <groupId>com.jayway.maven.plugins.android.generation2</groupId>
-                    <artifactId>android-maven-plugin</artifactId>
-                    <version>3.3.2</version>
-                    <configuration>
-                        <androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
-                        <assetsDirectory>${project.basedir}/assets</assetsDirectory>
-                        <resourceDirectory>${project.basedir}/res</resourceDirectory>
-                        <nativeLibrariesDirectory>${project.basedir}/src/main/native</nativeLibrariesDirectory>
-                        <sdk>
-                            <platform>17</platform>
-                        </sdk>
-                        <undeployBeforeDeploy>true</undeployBeforeDeploy>
-                    </configuration>
-                    <extensions>true</extensions>
-                </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
